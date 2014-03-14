@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DirectedGraph GraphDirection="LeftToRight" xmlns="http://schemas.microsoft.com/vs/2009/dgml">
+  <Nodes>
+    <Node Id="Pedrera.Core" Label="Pedrera.Core" Category="Project" />
+    <Node Id="NLog 2.1.0" Label="NLog 2.1.0" Category="Package" />
+    <Node Id="Pedrera.Core.Mvc" Label="Pedrera.Core.Mvc" Category="Project" />
+    <Node Id="Microsoft.Web.Infrastructure 1.0.0.0" Label="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package" />
+    <Node Id="Ninject 3.0.1.10" Label="Ninject 3.0.1.10" Category="Package" />
+    <Node Id="Ninject.MVC3 3.0.0.6" Label="Ninject.MVC3 3.0.0.6" Category="Package" />
+    <Node Id="Ninject.Web.Common 3.0.0.7" Label="Ninject.Web.Common 3.0.0.7" Category="Package" />
+    <Node Id="NLog 2.1.0" Label="NLog 2.1.0" Category="Package" />
+    <Node Id="WebActivator 1.5.3" Label="WebActivator 1.5.3" Category="Package" />
+  </Nodes>
+  <Links>
+    <Link Source="Pedrera.Core" Target="NLog 2.1.0" Category="Installed Package" />
+    <Link Source="Ninject.MVC3 3.0.0.6" Target="Ninject 3.0.1.10" Category="Package Dependency" />
+    <Link Source="Ninject.MVC3 3.0.0.6" Target="Ninject.Web.Common 3.0.0.7" Category="Package Dependency" />
+    <Link Source="Ninject.Web.Common 3.0.0.7" Target="Ninject 3.0.1.10" Category="Package Dependency" />
+    <Link Source="Ninject.Web.Common 3.0.0.7" Target="WebActivator 1.5.3" Category="Package Dependency" />
+    <Link Source="WebActivator 1.5.3" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Package Dependency" />
+    <Link Source="Pedrera.Core.Mvc" Target="Microsoft.Web.Infrastructure 1.0.0.0" Category="Installed Package" />
+    <Link Source="Pedrera.Core.Mvc" Target="Ninject 3.0.1.10" Category="Installed Package" />
+    <Link Source="Pedrera.Core.Mvc" Target="Ninject.MVC3 3.0.0.6" Category="Installed Package" />
+    <Link Source="Pedrera.Core.Mvc" Target="Ninject.Web.Common 3.0.0.7" Category="Installed Package" />
+    <Link Source="Pedrera.Core.Mvc" Target="NLog 2.1.0" Category="Installed Package" />
+    <Link Source="Pedrera.Core.Mvc" Target="WebActivator 1.5.3" Category="Installed Package" />
+  </Links>
+  <Categories>
+    <Category Id="Project" />
+    <Category Id="Package" />
+  </Categories>
+  <Styles>
+    <Style TargetType="Node" GroupLabel="Project" ValueLabel="True">
+      <Condition Expression="HasCategory('Project')" />
+      <Setter Property="Background" Value="Blue" />
+    </Style>
+    <Style TargetType="Link" GroupLabel="Package Dependency" ValueLabel="True">
+      <Condition Expression="HasCategory('Package Dependency')" />
+      <Setter Property="Background" Value="Yellow" />
+    </Style>
+  </Styles>
+</DirectedGraph>

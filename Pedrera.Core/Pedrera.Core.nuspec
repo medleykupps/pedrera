@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>$id$</id>
+    <version>$version$</version>
+    <title>$title$</title>
+    <authors>Sam Medley - Pedrera</authors>
+    <owners>Sam Medley - Pedrera</owners>
+    <licenseUrl>http://www.pedrera.com.au/lib/core/licence/</licenseUrl>
+    <projectUrl>http://www.pedrera.com.au/lib/core/</projectUrl>
+    <iconUrl>http://ICON_URL_HERE_OR_DELETE_THIS_LINE</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Core library for Pedrera applications</description>
+    <releaseNotes>Summary of changes made in this release of the package.</releaseNotes>
+    <copyright>Copyright 2013</copyright>
+    <tags>pedrera</tags>
+  </metadata>
+</package>
