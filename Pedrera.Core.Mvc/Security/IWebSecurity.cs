@@ -2,14 +2,19 @@
 
 namespace Pedrera.Core.Mvc.Security
 {
-    public interface IWebSecurity
+    public interface IWebSecurity<TUser>
     {
-        IPrincipal CurrentPrincipal { get; }
         bool IsApplicationLogin { get; }
-        int? CurrentPrincipalId { get; }
         bool IsAdministrator { get; }
         bool IsInRole(string role);
-        bool SignIn(IIdentity identity);
-        bool SignIn(string username);
+
+        bool IsSignedIn();
+        bool SignIn(TUser user);
+        bool SignOut();
+
+        AuthoriseResult Authorise();
+        AuthoriseResult Authorise(string[] roles, string[] users);
+
+        TUser GetCurrentUser();
     }
 }
