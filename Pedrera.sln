@@ -7,7 +7,13 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pedrera.Core.Mvc", "Pedrera
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pedrera.Core", "Pedrera.Core\Pedrera.Core.csproj", "{B042CA15-89FA-4699-8828-671E40A90ABF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pedrera.Core.Mongo", "Pedrera.Core.Mongo\Pedrera.Core.Mongo.csproj", "{A71C6E96-BD58-49BE-97E6-244DE52EC7C3}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{6D49A2BF-5347-4051-B0F9-8EE887DA3A05}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pedrera.Core.Mongo.Tests", "Tests\Pedrera.Core.Mongo.Tests\Pedrera.Core.Mongo.Tests.csproj", "{8E995CAF-8E67-431C-98A2-6006F3D514B6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pedrera.Core.Tests", "Tests\Pedrera.Core.Tests\Pedrera.Core.Tests.csproj", "{4792D127-FF97-4139-84F7-79694BDFAF17}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pedrera.Core.Repository.Mongo", "Pedrera.Core.Repository.Mongo\Pedrera.Core.Repository.Mongo.csproj", "{A71C6E96-BD58-49BE-97E6-244DE52EC7C3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,6 +34,18 @@ Global
 		{B042CA15-89FA-4699-8828-671E40A90ABF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B042CA15-89FA-4699-8828-671E40A90ABF}.Test|Any CPU.ActiveCfg = Release|Any CPU
 		{B042CA15-89FA-4699-8828-671E40A90ABF}.Test|Any CPU.Build.0 = Release|Any CPU
+		{8E995CAF-8E67-431C-98A2-6006F3D514B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8E995CAF-8E67-431C-98A2-6006F3D514B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8E995CAF-8E67-431C-98A2-6006F3D514B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8E995CAF-8E67-431C-98A2-6006F3D514B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8E995CAF-8E67-431C-98A2-6006F3D514B6}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{8E995CAF-8E67-431C-98A2-6006F3D514B6}.Test|Any CPU.Build.0 = Release|Any CPU
+		{4792D127-FF97-4139-84F7-79694BDFAF17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4792D127-FF97-4139-84F7-79694BDFAF17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4792D127-FF97-4139-84F7-79694BDFAF17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4792D127-FF97-4139-84F7-79694BDFAF17}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4792D127-FF97-4139-84F7-79694BDFAF17}.Test|Any CPU.ActiveCfg = Release|Any CPU
+		{4792D127-FF97-4139-84F7-79694BDFAF17}.Test|Any CPU.Build.0 = Release|Any CPU
 		{A71C6E96-BD58-49BE-97E6-244DE52EC7C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A71C6E96-BD58-49BE-97E6-244DE52EC7C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A71C6E96-BD58-49BE-97E6-244DE52EC7C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,5 +55,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{8E995CAF-8E67-431C-98A2-6006F3D514B6} = {6D49A2BF-5347-4051-B0F9-8EE887DA3A05}
+		{4792D127-FF97-4139-84F7-79694BDFAF17} = {6D49A2BF-5347-4051-B0F9-8EE887DA3A05}
 	EndGlobalSection
 EndGlobal

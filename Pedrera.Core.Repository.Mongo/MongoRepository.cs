@@ -1,17 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using MongoDB.Driver;
 using MongoDB.Driver.Builders;
 using MongoDB.Driver.Linq;
-using Pedrera.Core.Repository;
 
-namespace Pedrera.Core.Mongo.Repository
+namespace Pedrera.Core.Repository.Mongo
 {
     public class MongoRepository<T, TId> : IRepository<T, TId>
         where T : IIdentifiable<TId>
     {
+        private bool _isClassmapRegistered;
         private readonly IClassMap _classmap;
 
         private readonly string _connectionString = @"";
@@ -29,16 +28,24 @@ namespace Pedrera.Core.Mongo.Repository
                 throw new ArgumentNullException("databaseName", "Must provide a database name");
             }
 
-            _collectionName = collectionName;
-            _classmap = classmap;
+            _collectionName = collectionName;            
             _databaseName = databaseName;
             _connectionString = connectionString;
+
+            _classmap = classmap;
+            _isClassmapRegistered = false;
         }
 
         private MongoClient Client
         {
             get
             {
+                if (!_isClassmapRegistered)
+                {
+                    _classmap.Register();
+                    _isClassmapRegistered = true;
+                }
+
                 return _client ??
                        (_client = String.IsNullOrEmpty(_connectionString)
                            ? new MongoClient()
@@ -50,14 +57,22 @@ namespace Pedrera.Core.Mongo.Repository
 
         private MongoCollection<T> Collection
         {
-            get { return _collection ?? Database.GetCollection<T>(_collectionName); }
+            get
+            {
+                return _collection ??
+                       (_collection = Database.GetCollection<T>(_collectionName));
+            }
         }
 
         private MongoCollection<T> _collection;
 
         private MongoDatabase Database
         {
-            get { return _database ?? _client.GetServer().GetDatabase(_databaseName); }
+            get
+            {
+                return _database ??
+                       (_database = Client.GetServer().GetDatabase(_databaseName));
+            }
         }
 
         private MongoDatabase _database;
@@ -104,7 +119,7 @@ namespace Pedrera.Core.Mongo.Repository
 
         public bool Delete(TId id)
         {
-            throw new NotImplementedException();
+            return Collection.Remove(Query<T>.EQ(e => e.Id, id)).DocumentsAffected == 1;
         }
     }
 }
